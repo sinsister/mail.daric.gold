@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hacked by C.S.C !</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .c-green {
+        color: #0f0;
+        font-weight: 500;
+      }
+
+      .c-red {
+        color: #f00;
+        font-weight: 500;
+      }
+
+      .cont-body {
+        position: relative;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100vh;
+        max-width: 100%;
+        overflow: hidden;
+      }
+
+      .cont-body .matrix-bg {
+        position: relative;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100vh;
+      }
+
+      .only-sec {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 3;
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .only-sec .parent-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        opacity: 1;
+        color: #fff;
+        letter-spacing: 5px;
+        margin-top: 30px;
+      }
+
+      .only-sec .parent-title .title .fspan-title {
+        color: #0f0;
+      }
+
+      .sspan-title {
+        color: #f00;
+        font-weight: 500;
+      }
+
+      .only-sec .parent-title .title .sspan-title {
+        color: #f00;
+      }
+
+      .only-sec .logo-team {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .only-sec .logo-team .logo {
+        width: 500px;
+        margin-top: 20px;
+        box-shadow: 0px 0px 30px #020202;
+      }
+
+      .only-sec .parent-paragraph {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-top: 20px;
+        color: #fff;
+      }
+
+      .only-sec .parent-paragraph .paragraph {
+        max-width: 600px;
+        font-size: 20px;
+      }
+
+      /* ######################### key frames ############################# */
+      @keyframes fadetitle {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .only-sec .parent-paragraph .paragraph {
+          max-width: 500px;
+          font-size: 15px;
+        }
+      }
+    </style>
+    <div class="cont-body">
+      <canvas id="matrix-bg" class="matrix-bg"></canvas>
+      <div class="only-sec" id="only-sec">
+        <div class="container">
+          <div class="parent-title" id="parent-title">
+            <h1 class="title">
+              <span class="fspan-title">HACKED</span> by
+              <span class="sspan-title">MoryJan & BlackHunter</span>
+            </h1>
+          </div>
+          <div class="logo-team">
+            <img class="logo" src="https://s6.uupload.ir/files/photo_2023-10-27_17-02-01_dto9.jpg" alt="SEO" />
+          </div>
+          <div class="parent-paragraph">
+            <p class="paragraph">
+                to name of <span class="sspan-title">teylor</span>. <span class="sspan-title">teylor</span> used to desing a site like your site
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var c = document.getElementById("matrix-bg");
+      var ctx = c.getContext("2d");
+
+      c.height = window.innerHeight;
+      c.width = window.innerWidth;
+
+      var matrix =
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
+
+      matrix = matrix.split("");
+
+      var font_size = 10;
+      var columns = c.width / font_size;
+
+      var drops = [];
+
+      for (var x = 0; x < columns; x++) drops[x] = 1;
+
+      function draw() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
+        ctx.fillRect(0, 0, c.width, c.height);
+
+        ctx.fillStyle = "rgb(0, 255, 0)";
+        ctx.font = font_size + "px arial";
+
+        for (var i = 0; i < drops.length; i++) {
+          var text = matrix[Math.floor(Math.random() * matrix.length)];
+
+          ctx.fillText(text, i * font_size, drops[i] * font_size);
+
+          if (drops[i] * font_size > c.height && Math.random() > 0.975)
+            drops[i] = 0;
+
+          drops[i]++;
+        }
+      }
+
+      function TitleAnimation() {
+        var Title = document.getElementById("only-sec");
+        Title.style.opacity = "1";
+      }
+
+      function runanim() {
+        setTimeout(TitleAnimation, 2500);
+      }
+
+      setInterval(draw, 35);
+      runanim();
+    </script>
+  </body>
+</html>
